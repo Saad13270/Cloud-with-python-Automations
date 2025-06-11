@@ -1,0 +1,44 @@
+Lab 2: Basic Python Script to Interact with AWS Services
+
+Introduction to Boto3:
+Boto3 is the Amazon Web Services (AWS) SDK for Python. It allows you to interact with various AWS services programmatically. You can find the official Boto3 documentation here: Boto3 Documentation
+
+AWS SDK and Its Relevance in Automation:
+AWS SDKs, including Boto3 for Python, are essential for automating tasks and interacting with AWS services. They provide a convenient way to access AWS resources, manage configurations, and perform various operations programmatically. AWS SDKs are crucial for cloud automation, infrastructure as code (IaC), and building AWS-based applications.
+
+=> Write a Python script using Boto3 to list all your S3 buckets
+
+Task1: Install and configure boto3
+	1.1: Install boto3
+		Command: pip install boto3
+             1.2: Aws Cli  Installation and Configuration
+		1.2.1: Aws cli installation:
+			Command1: curl "https://awscli.amazonaws.com/awscli-exe-linux-x86_64.zip" -o "awscliv2.zip"	
+Command2: unzip awscliv2.zip
+Command3: sudo ./aws/install
+1.2.2: aws configure:
+	Command1: aws configure(after running this command you would be asked to input your access key and security key along with your default region
+
+Task 2: Write a Python Script to List S3 Buckets
+	Create any python file then open it through vim editor or any other editor of you choice, press i to insert elements in it. After that write the below code in the file
+import boto3
+
+# Create an S3 client
+s3 = boto3.client('s3')
+
+# List all S3 buckets
+response = s3.list_buckets()
+
+print("List of S3 Buckets:")
+for bucket in response['Buckets']:
+    print(f"- {bucket['Name']}")
+
+After this run python3 YourFilename.py
+
+
+
+
+
+
+     
+
